@@ -1,1 +1,103 @@
-<h1>halllöschn</h1>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Übung 1: Farbauswahl</title>
+<style>
+  body  { background-color:#AAAAAA;
+			
+        }
+  h1    { font:bold 16pt Arial,sans-serif;
+          text-align:center;
+		  margin-top:20px;
+        }
+  p     { font-size: 16px;
+          text-align:center;
+        }
+ table  { border-width:0px;
+          width:300px; height:20px;
+          padding:0px;
+        }
+ td     { border:1px solid black;
+          height:20px;
+		  width:33%
+        }
+input{
+			width:20px;
+			height:20px;}
+			
+button{font-size:16px;width: 250px;
+height: 30px;}
+fieldset{
+		margin 10px auto;
+		width: 300px;
+		height:210px;
+		border-radius: 10px;
+		text-align:center;
+		background-color: #FFF;
+		}
+div {margin: 30px auto;
+		width: 300px;
+		height:250px;
+		}
+input{ text-align:center;
+}
+.ausgabe 	{border:1px solid red;
+			border-radius: 10px;
+			height:100px;
+			width:250px;
+			font-size:50px;
+			text-align:center;
+			background-color: #FFF;}
+</style>
+
+</head>
+
+<body id="body">
+<div>
+<fieldset>
+
+<h1>Umwandlung</h1>
+<p id="zurueck">Stellen sie die Binärzahl durch Markierung der auf "1" gesetzten Binärstellen dar</p>
+
+<input type="checkbox" name="7">
+<input type="checkbox" name="6">
+<input type="checkbox" name="5">
+<input type="checkbox" name="4">
+<input type="checkbox" name="3">
+<input type="checkbox" name="2">
+<input type="checkbox" name="1">
+<input type="checkbox" name="0">
+<br><br>
+<button type="button" id="rechnen">Umwandlung in Dezimalzahl</button>
+</fieldset>
+<div class="ausgabe"></div>
+</div>
+
+<div></div>
+
+
+<script>
+
+	document.getElementById("rechnen").addEventListener("click", umwandeln);
+	
+	function umwandeln()
+	{
+	var zahl=0;
+	var summe=0;
+	var tag = document.getElementsByTagName("input");
+	
+	for (var i = 0; i < tag.length; i++)
+	{
+	if (tag[i].checked){
+	zahl = tag[i].getAttribute("name");
+	zahl = Math.pow(2,zahl);
+	summe = summe + zahl;
+	}
+	}
+	document.getElementsByClassName("ausgabe")[0].innerHTML = summe;
+	}
+</script>
+
+</body>
+</html>
+
